@@ -5371,6 +5371,10 @@ with pkgs;
   # TeX Live; see https://nixos.org/nixpkgs/manual/#sec-language-texlive
   texlive = recurseIntoAttrs (callPackage ../tools/typesetting/tex/texlive { });
 
+  fedimint = callPackage ../applications/blockchains/fedimint {
+      inherit (darwin.apple_sdk.frameworks) Security;
+  };
+  
   fop = callPackage ../tools/typesetting/fop {
     jdk = openjdk8;
   };
